@@ -12,8 +12,25 @@ var usersRouter = require('./routes/userRouter')
 var gorupRouter = require('./routes/groupRouter')
 var expenseRouter = require('./routes/expenseRouter')
 
+const allowedOrigins = [
+    'https://budget-expense-tracker-main-de1-sanskar-jains-projects-dca92dea.vercel.app',
+    'https://budget-expense-tracker-main-de1a65387b643c5078aa8e5b-admtbf5pr.vercel.app'
+];
+
 var app = express()
-app.use(cors())
+
+app.use(cors({
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) {
+            var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    }
+}));
+
 app.use(express.json())
 app.use(requestLogger)
 
