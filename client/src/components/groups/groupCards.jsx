@@ -1,7 +1,7 @@
 // @mui
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
-import { Card, CardContent, Typography, Box, AvatarGroup, Avatar, Stack, Grid } from '@mui/material';
+import { Card, CardContent, Typography, Box, AvatarGroup, Avatar, Stack, Grid2 } from '@mui/material';
 import { convertToCurrency, currencyFind, categoryIcon } from '../../utils/helper';
 // utils
 // components
@@ -119,8 +119,8 @@ export default function GroupCards({ title, description, groupMembers, share, cu
               {currencyFind(currencyType)} {convertToCurrency(Math.abs(Math.floor(share)))}</b>
           </Typography>
         </Stack>
-        <Grid container direction="row" spacing={1} p={1}>
-          <Grid item md={6} xs={12}>
+        <Grid2 container direction="row" spacing={1} p={1}>
+          <Grid2 item md={6} xs={12}>
             <Stack direction="row" width={'100%'}>
               <Typography justifyContent={'center'} py={1} mr={1}>
                 Category {" "}
@@ -134,15 +134,15 @@ export default function GroupCards({ title, description, groupMembers, share, cu
                 {groupCategory}
               </Box>
             </Stack>
-          </Grid>
-          <Grid item md={6} xs={12}>
+          </Grid2>
+          <Grid2 item md={6} xs={12}>
             <AvatarGroup max={3} sx={{ width: '100%' }}>
               {groupMembers.map(member => (
                 <Avatar key={member} alt={member.toUpperCase()} src={gravatarUrl(member, { size: 350 ,default: configData.USER_DEFAULT_LOGO_URL})} />
               ))}
             </AvatarGroup>
-          </Grid>
-        </Grid>
+          </Grid2>
+        </Grid2>
 
       </CardContent>
 

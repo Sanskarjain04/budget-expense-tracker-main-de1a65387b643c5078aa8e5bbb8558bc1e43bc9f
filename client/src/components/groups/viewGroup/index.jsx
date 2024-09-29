@@ -1,4 +1,4 @@
-import { Box, Button, Container, Divider, Fab, Grid, Link, Stack, styled, Typography } from '@mui/material';
+import { Box, Button, Container, Divider, Fab, Grid2, Link, Stack, styled, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getGroupDetailsService, getGroupExpenseService } from '../../../services/groupServices';
@@ -206,13 +206,13 @@ export default function ViewGroup() {
                         width: '100%'
 
                     }}>
-                        <Grid container spacing={3} mt={'1px'}
+                        <Grid2 container spacing={3} mt={'1px'}
                             sx={{
                                 ...(mdUp && { px: 6 })
                             }}
                         >
 
-                            <Grid item xs={12} md={4}>
+                            <Grid2 item xs={12} md={4}>
                                 <Stack spacing={2} direction='row'
                                     sx={{
                                         bgcolor: (theme) => theme.palette['primary'].lighter,
@@ -233,9 +233,9 @@ export default function ViewGroup() {
                                         </Typography>
                                     </Box>
                                 </Stack>
-                            </Grid>
+                            </Grid2>
 
-                            <Grid item xs={12} md={4}
+                            <Grid2 item xs={12} md={4}
 
                             >
                                 <Stack spacing={2} direction='row' sx={{
@@ -258,9 +258,9 @@ export default function ViewGroup() {
                                         </Typography>
                                     </Box>
                                 </Stack>
-                            </Grid>
+                            </Grid2>
 
-                            <Grid item xs={12} md={4}>
+                            <Grid2 item xs={12} md={4}>
                                 <Stack spacing={2} direction='row' sx={{
                                     bgcolor: (theme) => theme.palette['error'].lighter,
                                     borderRadius: 2,
@@ -281,9 +281,9 @@ export default function ViewGroup() {
                                         </Typography>
                                     </Box>
                                 </Stack>
-                            </Grid>
+                            </Grid2>
 
-                        </Grid>
+                        </Grid2>
                         <Stack
                             pt={4}
                             px={{ xs: 0, md: 6 }}
@@ -350,7 +350,7 @@ export default function ViewGroup() {
                                 My Balance
                             </Typography>
                         </Stack>
-                        <Grid container mt={2} rowSpacing={2} columnSpacing={{ xs: 1, md: 2 }}
+                        <Grid2 container mt={2} rowSpacing={2} columnSpacing={{ xs: 1, md: 2 }}
                             justifyContent={'center'}
                             alignItems={'center'}
                             sx={{
@@ -363,14 +363,14 @@ export default function ViewGroup() {
                             </Typography>
                             }
                             {viewSettlement === 1 &&
-                                <Grid item md={12} xs={12}>
+                                <Grid2 item md={12} xs={12}>
                                     <GroupSettlements currencyType={group?.groupCurrency} />
-                                </Grid>
+                                </Grid2>
                             }
                             {viewSettlement === 0 &&
                                 <>
                                     {alertExpense ?
-                                        <Grid container
+                                        <Grid2 container
                                             direction="column"
                                             style={{
                                                 display: 'flex',
@@ -387,13 +387,13 @@ export default function ViewGroup() {
                                                     Add Expense
                                                 </Link>
                                             </Typography>
-                                        </Grid>
+                                        </Grid2>
                                         : <>
-                                            <Grid item xs={12} md={expFocus ? 12 : 6}>
-                                                <Grid container spacing={2}>
+                                            <Grid2 item xs={12} md={expFocus ? 12 : 6}>
+                                                <Grid2 container spacing={2}>
 
                                                     {expenses?.map(myExpense => (
-                                                        <Grid item xs={12} md={expFocus ? 6 : 12} key={myExpense?._id}>
+                                                        <Grid2 item xs={12} md={expFocus ? 6 : 12} key={myExpense?._id}>
                                                             <ExpenseCard
                                                                 expenseId={myExpense?._id}
                                                                 expenseName={myExpense?.expenseName}
@@ -403,25 +403,25 @@ export default function ViewGroup() {
                                                                 expenseDate={myExpense?.expenseDate}
                                                                 currencyType={group?.groupCurrency}
                                                             />
-                                                        </Grid>))}
+                                                        </Grid2>))}
 
-                                                    {!showAllExp && <Grid item xs={12}>
+                                                    {!showAllExp && <Grid2 item xs={12}>
                                                         <Button onClick={toggleAllExp}>View More</Button>
-                                                    </Grid>}
-                                                </Grid>
-                                            </Grid>
-                                            <Grid item xs={12} md={6} >
+                                                    </Grid2>}
+                                                </Grid2>
+                                            </Grid2>
+                                            <Grid2 item xs={12} md={6} >
                                                 <GroupCategoryGraph currencyType={group?.groupCurrency} />
-                                            </Grid>
-                                            <Grid item xs={12} md={expFocus || viewSettlement ? 6 : 12}>
+                                            </Grid2>
+                                            <Grid2 item xs={12} md={expFocus || viewSettlement ? 6 : 12}>
                                                 <GroupMonthlyGraph />
-                                            </Grid>
+                                            </Grid2>
                                         </>
                                     }
                                 </>
                             }
 
-                        </Grid>
+                        </Grid2>
                     </Box>
 
                 </>}

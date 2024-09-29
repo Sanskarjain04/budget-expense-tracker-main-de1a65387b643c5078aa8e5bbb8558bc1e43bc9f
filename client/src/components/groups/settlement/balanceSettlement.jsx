@@ -1,5 +1,5 @@
 import { DesktopDatePicker, LoadingButton, LocalizationProvider, MobileDatePicker } from "@mui/lab";
-import { Button, Grid, InputAdornment, TextField, Typography } from "@mui/material"
+import { Button, Grid2, InputAdornment, TextField, Typography } from "@mui/material"
 import useResponsive from '../../../theme/hooks/useResponsive';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import * as Yup from 'yup';
@@ -61,7 +61,7 @@ const BalanceSettlement = ({ currencyType, settleTo, settleFrom, amount, handleC
     
     <>
     {settleSuccess ? 
-      <Grid container
+      <Grid2 container
       direction="column"
       style={{ 
         display: 'flex',
@@ -74,7 +74,7 @@ const BalanceSettlement = ({ currencyType, settleTo, settleFrom, amount, handleC
       <Typography variant="h4" textAlign={'center'} mt={2}>
           Settlement Successfull !
       </Typography>
-      </Grid>
+      </Grid2>
       : 
       <>
       <Typography id="modal-modal-title" variant="h6" component="h2" mb={4}>
@@ -84,8 +84,8 @@ const BalanceSettlement = ({ currencyType, settleTo, settleFrom, amount, handleC
       
       <FormikProvider value={formik}>
         <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={6}>
+          <Grid2 container spacing={3}>
+            <Grid2 item xs={12} md={6}>
               <TextField
                 fullWidth
                 name="settleTo"
@@ -98,8 +98,8 @@ const BalanceSettlement = ({ currencyType, settleTo, settleFrom, amount, handleC
                 error={Boolean(touched.settleTo && errors.settleTo)}
                 helperText={touched.settleTo && errors.settleTo}
               />
-            </Grid>
-            <Grid item xs={12} md={6}>
+            </Grid2>
+            <Grid2 item xs={12} md={6}>
               <TextField
                 fullWidth
                 name="settleFrom"
@@ -112,8 +112,8 @@ const BalanceSettlement = ({ currencyType, settleTo, settleFrom, amount, handleC
                 error={Boolean(touched.settleFrom && errors.settleFrom)}
                 helperText={touched.settleFrom && errors.settleFrom}
               />
-            </Grid>
-            <Grid item xs={12} md={4}>
+            </Grid2>
+            <Grid2 item xs={12} md={4}>
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 {mdUp ?
                   <DesktopDatePicker
@@ -142,8 +142,8 @@ const BalanceSettlement = ({ currencyType, settleTo, settleFrom, amount, handleC
 
                   />}
               </LocalizationProvider>
-            </Grid>
-            <Grid item xs={12} md={8}>
+            </Grid2>
+            <Grid2 item xs={12} md={8}>
 
               <TextField
                 fullWidth
@@ -165,21 +165,21 @@ const BalanceSettlement = ({ currencyType, settleTo, settleFrom, amount, handleC
                 error={Boolean(touched.settleAmount && errors.settleAmount)}
                 helperText={touched.settleAmount && errors.settleAmount}
               />
-            </Grid>
+            </Grid2>
 
-            {mdUp && <Grid item xs={0} md={6} />}
-            <Grid item xs={6} md={3}>
+            {mdUp && <Grid2 item xs={0} md={6} />}
+            <Grid2 item xs={6} md={3}>
               <Button fullWidth size="large" variant="outlined" onClick={handleClose}>
                 Cancel
               </Button>
-            </Grid>
-            <Grid item xs={6} md={3}>
+            </Grid2>
+            <Grid2 item xs={6} md={3}>
               <LoadingButton fullWidth size="large" type="submit" variant="contained" >
                 Settle
               </LoadingButton>
-            </Grid>
+            </Grid2>
 
-          </Grid>
+          </Grid2>
         </Form>
       </FormikProvider>
       </>

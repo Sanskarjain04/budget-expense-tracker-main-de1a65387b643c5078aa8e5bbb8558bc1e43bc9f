@@ -1,4 +1,4 @@
-import {  Container, Grid, Typography } from "@mui/material"
+import {  Container, Grid2, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getUserExpenseService} from "../../services/expenseServices"
@@ -46,16 +46,16 @@ export default function Dashboard() {
     return (
         <Container maxWidth={'xl'}>
             {loading ? <Loading /> :
-                <Grid container spacing={3}>
-                    <Grid item xs={12} md={8}>
-                        <Grid container spacing={5}>
-                            <Grid item xs={12}>
+                <Grid2 container spacing={3}>
+                    <Grid2 item xs={12} md={8}>
+                        <Grid2 container spacing={5}>
+                            <Grid2 item xs={12}>
                                 <WelcomeMessage />
-                            </Grid>
+                            </Grid2>
 
                             {newUser ?
-                                <Grid item xs={12}>
-                                    <Grid container
+                                <Grid2 item xs={12}>
+                                    <Grid2 container
                                         direction="column"
                                         style={{
                                             display: 'flex',
@@ -73,45 +73,45 @@ export default function Dashboard() {
                                                 Create Group
                                             </Link>
                                         </Typography>
-                                    </Grid>
-                                </Grid>
+                                    </Grid2>
+                                </Grid2>
 
                                 :
                                 <>
-                                    <Grid item xs={12}>
+                                    <Grid2 item xs={12}>
                                         <SummaryCards userTotalExp={userExp?.total} />
-                                    </Grid>
-                                    <Grid item xs={12}>
+                                    </Grid2>
+                                    <Grid2 item xs={12}>
                                         <CalenderExpenseGraph />
-                                    </Grid>
-                                    <Grid item xs={12} md={12}>
+                                    </Grid2>
+                                    <Grid2 item xs={12} md={12}>
                                         <GroupExpenseChart />
-                                    </Grid>
-                                    {/* <Grid item xs={12} md={6}>
+                                    </Grid2>
+                                    {/* <Grid2 item xs={12} md={6}>
                                 <CategoryExpenseChart />
-                            </Grid> */}
+                            </Grid2> */}
                                 </>
                             }
-                        </Grid>
+                        </Grid2>
 
-                    </Grid>
+                    </Grid2>
                     {!newUser &&
-                        <Grid item xs={12} md={4}>
-                            <Grid container spacing={3}>
-                                <Grid item xs={12}>
+                        <Grid2 item xs={12} md={4}>
+                            <Grid2 container spacing={3}>
+                                <Grid2 item xs={12}>
                                     <RecentTransactions />
-                                </Grid>
-                                <Grid item xs={12}>
+                                </Grid2>
+                                <Grid2 item xs={12}>
                                     <CategoryExpenseChart />
-                                </Grid>
-                                <Grid item md={12} xs={0}>
+                                </Grid2>
+                                <Grid2 item md={12} xs={0}>
                                     <EndMessage />
-                                </Grid>
-                            </Grid>
-                        </Grid>
+                                </Grid2>
+                            </Grid2>
+                        </Grid2>
                     }
 
-                </Grid>
+                </Grid2>
 
             }</Container>
 

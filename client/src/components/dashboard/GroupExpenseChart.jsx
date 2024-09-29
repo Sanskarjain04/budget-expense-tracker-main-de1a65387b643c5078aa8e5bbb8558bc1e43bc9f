@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material"
+import { Box, Grid2, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import { Bar, Pie } from "react-chartjs-2"
 import { getUserGroupsService } from "../../services/groupServices"

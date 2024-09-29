@@ -1,4 +1,4 @@
-import { Grid, Box, styled, Typography, autocompleteClasses, Popover, MenuList, MenuItem, ListItemIcon, ListItemText, Modal, Stack, Button } from '@mui/material'
+import { Grid2, Box, styled, Typography, autocompleteClasses, Popover, MenuList, MenuItem, ListItemIcon, ListItemText, Modal, Stack, Button } from '@mui/material'
 import React, { useState } from 'react'
 import useResponsive from '../../theme/hooks/useResponsive';
 import PropTypes from 'prop-types';
@@ -67,7 +67,7 @@ export default function ExpenseCard({ expenseId, expenseName, expenseAmount, exp
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
     return (
-        <Grid container
+        <Grid2 container
             alignItems="center"
             justifyContent="space-between"
             sx={{
@@ -77,7 +77,7 @@ export default function ExpenseCard({ expenseId, expenseName, expenseAmount, exp
                 py: 1
             }}
         >
-            <Grid item xs={2}>
+            <Grid2 item xs={2}>
                 <DateBoxStyle>
                     <Typography variant="body2" sx={{
 
@@ -97,8 +97,8 @@ export default function ExpenseCard({ expenseId, expenseName, expenseAmount, exp
                         {getMonthMMM(expenseDate)}
                     </Typography>
                 </DateBoxStyle>
-            </Grid>
-            <Grid item xs={5} ml={1}>
+            </Grid2>
+            <Grid2 item xs={5} ml={1}>
                 <Typography noWrap variant='h6'
                     color={(theme) => theme.palette['primary'].dark}
                 >
@@ -120,8 +120,8 @@ export default function ExpenseCard({ expenseId, expenseName, expenseAmount, exp
                     Paid by, <br />{expenseOwner}
                 </Typography>
 
-            </Grid>
-            <Grid item xs={3}>
+            </Grid2>
+            <Grid2 item xs={3}>
                 <Typography
                     color={(theme) => theme.palette['error'].dark}
                     sx={{
@@ -134,8 +134,8 @@ export default function ExpenseCard({ expenseId, expenseName, expenseAmount, exp
                 >
                     <b>{currencyFind(currencyType)} {convertToCurrency(expensePerMember)}</b>
                 </Typography>
-            </Grid>
-            <Grid item xs={1}>
+            </Grid2>
+            <Grid2 item xs={1}>
                 <Box sx={{
                     p: 0,
                     mt: -5
@@ -202,7 +202,7 @@ export default function ExpenseCard({ expenseId, expenseName, expenseAmount, exp
                         </Box>
                     </Modal>
                 </Box>
-            </Grid>
-        </Grid>
+            </Grid2>
+        </Grid2>
     )
 }

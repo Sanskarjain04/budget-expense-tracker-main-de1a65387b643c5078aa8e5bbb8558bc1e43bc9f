@@ -1,12 +1,12 @@
 import { calculateSize } from "@iconify/react";
-import { CircularProgress, Grid, Typography } from "@mui/material";
+import { CircularProgress, Grid2, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 
 export default function Loading() {
 
   return (
-    <Grid container
+    <Grid2 container
     direction="column"
     style={{ 
       display: 'flex',
@@ -19,6 +19,6 @@ export default function Loading() {
     <Typography variant="h3" textAlign={'center'}>
         Loading...
     </Typography>
-    </Grid>
+    </Grid2>
   )
 }

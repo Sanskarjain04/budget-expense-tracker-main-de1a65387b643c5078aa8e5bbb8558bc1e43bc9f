@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid2, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
@@ -39,22 +39,22 @@ export const GroupSettlements = ({ currencyType }) => {
             {loading ? <Loading /> :
                 <Box sx={{ pb: 3 }}>
                     <AlertBanner showAlert={alert} alertMessage={alertMessage} severity='error' />
-                    <Grid container spacing={2}>
+                    <Grid2 container spacing={2}>
                     {groupSettlement?.map((mySettle, index) => (
                         <>
                             {mySettle[2] > 0 &&
-                                <Grid item xs={12} md={6} key={index}>
+                                <Grid2 item xs={12} md={6} key={index}>
                                     {noSettle && setNoSettle(false)}
                                     <SettlementCard  mySettle={mySettle} currencyType={currencyType} /> 
-                                </Grid>
+                                </Grid2>
                             }
                             </>
                         
                     ))}
-                    </Grid>
+                    </Grid2>
 
                     {noSettle ?
-                        <Grid container
+                        <Grid2 container
                         direction="column"
                         style={{ 
                           display: 'flex',
@@ -67,7 +67,7 @@ export const GroupSettlements = ({ currencyType }) => {
                         <Typography fontSize={18} textAlign={'center'} my={1}>
                         No Settlement requiered !
                         </Typography>
-                        </Grid>
+                        </Grid2>
                          : <UserBalanceChart/>}
 
 

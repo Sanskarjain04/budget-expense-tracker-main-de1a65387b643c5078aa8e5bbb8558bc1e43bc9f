@@ -1,4 +1,4 @@
-import { Box, Grid, Stack, styled, Typography } from '@mui/material'
+import { Box, Grid2, Stack, styled, Typography } from '@mui/material'
 import React from 'react'
 import { convertToCurrency } from '../../utils/helper'
 import Iconify from '../Iconify'
@@ -10,10 +10,10 @@ export const SummaryCards = ({ userTotalExp }) => {
         height: 60,
     }))
     return (
-        <Grid container spacing={2}
+        <Grid2 container spacing={2}
             justifyContent={'center'}
             alignItems={'center'}>
-             <Grid item xs={12} md={12}> {/*Change md to 4  */}
+             <Grid2 item xs={12} md={12}> {/*Change md to 4  */}
                 <Stack spacing={2} direction='row'
                     sx={{
                         bgcolor: (theme) => theme.palette['primary'].lighter,
@@ -34,9 +34,9 @@ export const SummaryCards = ({ userTotalExp }) => {
                         </Typography>
                     </Box>
                 </Stack>
-            </Grid>
+            </Grid2>
 
-            {/* <Grid item xs={12} md={4}
+            {/* <Grid2 item xs={12} md={4}
 
             >
                 <Stack spacing={2} direction='row' sx={{
@@ -59,9 +59,9 @@ export const SummaryCards = ({ userTotalExp }) => {
                         </Typography>
                     </Box>
                 </Stack>
-            </Grid>
+            </Grid2>
 
-            <Grid item xs={12} md={4}>
+            <Grid2 item xs={12} md={4}>
                 <Stack spacing={2} direction='row' sx={{
                     bgcolor: (theme) => theme.palette['error'].lighter,
                     borderRadius: 2,
@@ -82,8 +82,8 @@ export const SummaryCards = ({ userTotalExp }) => {
                         </Typography>
                     </Box>
                 </Stack>
-            </Grid> */}
-        </Grid>
+            </Grid2> */}
+        </Grid2>
 
     )
 }

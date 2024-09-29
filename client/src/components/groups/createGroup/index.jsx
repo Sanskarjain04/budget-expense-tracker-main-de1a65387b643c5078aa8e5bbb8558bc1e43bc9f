@@ -1,5 +1,5 @@
 import { LoadingButton } from '@mui/lab';
-import { Box, Chip, Container, FormControl, FormHelperText, Grid, InputLabel, MenuItem, OutlinedInput, Select, TextField, Typography } from '@mui/material'
+import { Box, Chip, Container, FormControl, FormHelperText, Grid2, InputLabel, MenuItem, OutlinedInput, Select, TextField, Typography } from '@mui/material'
 import { Form, FormikProvider, useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import * as Yup from 'yup';
@@ -85,8 +85,8 @@ export default function Creategroup() {
                     <AlertBanner showAlert={alert} alertMessage={alertMessage} severity = 'error' />
                     <FormikProvider value={formik}>
                         <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
-                            <Grid container spacing={3} sx={{ maxWidth: 800 }}>
-                                <Grid item xs={12} >
+                            <Grid2 container spacing={3} sx={{ maxWidth: 800 }}>
+                                <Grid2 item xs={12} >
                                     <TextField fullWidth
                                         type="text"
                                         name="groupName"
@@ -97,8 +97,8 @@ export default function Creategroup() {
                                         error={Boolean(touched.groupName && errors.groupName)}
                                         helperText={touched.groupName && errors.groupName}
                                     />
-                                </Grid>
-                                <Grid item xs={12} >
+                                </Grid2>
+                                <Grid2 item xs={12} >
                                     <TextField
                                         multiline
                                         rows={4}
@@ -111,8 +111,8 @@ export default function Creategroup() {
                                         error={Boolean(touched.groupDescription && errors.groupDescription)}
                                         helperText={touched.groupDescription && errors.groupDescription}
                                     />
-                                </Grid>
-                                <Grid item xs={12}>
+                                </Grid2>
+                                <Grid2 item xs={12}>
                                     <FormControl sx={{ width: '100%' }}>
                                         <InputLabel id="group-members-label">Group Members</InputLabel>
                                         <Select
@@ -140,9 +140,9 @@ export default function Creategroup() {
                                             ))}
                                         </Select>
                                     </FormControl>
-                                </Grid>
+                                </Grid2>
 
-                                <Grid item xs={6} >
+                                <Grid2 item xs={6} >
                                     <FormControl fullWidth
                                         error={Boolean(touched.groupCurrency && errors.groupCurrency)}
                                     >
@@ -161,8 +161,8 @@ export default function Creategroup() {
                                         <FormHelperText>{touched.groupCurrency && errors.groupCurrency}</FormHelperText>
 
                                     </FormControl>
-                                </Grid>
-                                <Grid item xs={6} >
+                                </Grid2>
+                                <Grid2 item xs={6} >
                                     <FormControl fullWidth
                                         error={Boolean(touched.groupCategory && errors.groupCategory)}
                                     >
@@ -183,16 +183,16 @@ export default function Creategroup() {
                                         <FormHelperText>{touched.groupCategory && errors.groupCategory}</FormHelperText>
 
                                     </FormControl>
-                                </Grid>
+                                </Grid2>
 
-                                {mdUp && <Grid item xs={0} md={9}/> }
+                                {mdUp && <Grid2 item xs={0} md={9}/> }
                                                   
-                                <Grid item xs={6} md={3}>
+                                <Grid2 item xs={6} md={3}>
                                     <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
                                         Create Group
                                     </LoadingButton>
-                                </Grid>
-                            </Grid>
+                                </Grid2>
+                            </Grid2>
                         </Form>
                     </FormikProvider>
                 </>

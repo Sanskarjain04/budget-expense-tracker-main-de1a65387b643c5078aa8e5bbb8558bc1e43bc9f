@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Paper, styled, Typography } from '@mui/material'
+import { Box, Button, Container, Grid2, Paper, styled, Typography } from '@mui/material'
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getExpDetailsService } from "../../services/expenseServices";
@@ -66,46 +66,46 @@ export const ViewExpense = () => {
                             {expenseDetails?.expenseDescription}
                         </Typography>
                     </Box>
-                    <Grid container spacing={3} p={4}>
+                    <Grid2 container spacing={3} p={4}>
 
-                        <Grid item md={6} xs={12} >
+                        <Grid2 item md={6} xs={12} >
                             <Typography variant='h6'>
                                 Category : {expenseDetails?.expenseCategory}
                             </Typography>
-                        </Grid>
-                        <Grid item md={6} xs={12}>
+                        </Grid2>
+                        <Grid2 item md={6} xs={12}>
                         <Typography variant='h6'>
                             Date : {expenseDate}
 
                             </Typography>
-                        </Grid>
+                        </Grid2>
                        
 
-                        <Grid item md={6} xs={12}>
+                        <Grid2 item md={6} xs={12}>
                             <Typography variant='h6'>
                                 Amount : {currencyFind(expenseDetails?.expenseCurrency) + " " + convertToCurrency(expenseDetails?.expenseAmount)}
                             </Typography>
-                        </Grid>
+                        </Grid2>
 
-                        <Grid item md={6} xs={12}>
+                        <Grid2 item md={6} xs={12}>
                             <Typography variant='h6'>
                                 Payment Method : {expenseDetails?.expenseType}
                             </Typography>
-                        </Grid>
+                        </Grid2>
 
-                        <Grid item md={6} xs={12} >
+                        <Grid2 item md={6} xs={12} >
                             <Typography variant='h6'>
                                 Expense Owner : {expenseDetails?.expenseOwner}
                             </Typography>
-                        </Grid>
+                        </Grid2>
 
-                        <Grid item xs={12}>
+                        <Grid2 item xs={12}>
                             <Typography variant='h6' color={(theme) => theme.palette['error'].main}>
                                 Amount per person: {currencyFind(expenseDetails?.expenseCurrency) + " " + convertToCurrency(expenseDetails?.expensePerMember)}
                             </Typography>
-                        </Grid>
+                        </Grid2>
 
-                        <Grid item xs={12}>
+                        <Grid2 item xs={12}>
                             <Typography variant='h6'>
                                 Members :
                             </Typography>
@@ -117,24 +117,24 @@ export const ViewExpense = () => {
                             ))}
 
 
-                        </Grid>
+                        </Grid2>
 
 
 
-                        {mdUp && <Grid item xs={0} md={6} />}
-                        <Grid item xs={6} md={3}>
+                        {mdUp && <Grid2 item xs={0} md={6} />}
+                        <Grid2 item xs={6} md={3}>
                             <Button fullWidth size="large" variant="outlined" onClick={() => navigate(-1)}>
                                 Cancel
                             </Button>
-                        </Grid>
-                        <Grid item xs={6} md={3}>
+                        </Grid2>
+                        <Grid2 item xs={6} md={3}>
                             <Button fullWidth size="large" variant="contained" component={RouterLink}
                                 to={dataConfig.EDIT_EXPENSE_URL + expenseId}>
                                 Edit
                             </Button>
-                        </Grid>
+                        </Grid2>
 
-                    </Grid>
+                    </Grid2>
                 </Container>
             }
         </>

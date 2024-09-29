@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { useFormik, Form, FormikProvider } from 'formik';
 // material
-import {  Stack,  TextField, IconButton, InputAdornment,  Snackbar, Alert, Grid, Button } from '@mui/material';
+import {  Stack,  TextField, IconButton, InputAdornment,  Snackbar, Alert, Grid2, Button } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // component
 import Iconify from '../Iconify';
@@ -80,20 +80,20 @@ export default function EditForm({hideEditUser, emailId, firstName, lastName, sh
               helperText={touched.lastName && errors.lastName} />
             </Stack>
           </Stack>
-          <Grid container spacing={2} mt={2} justifyContent={'center'}> 
-        <Grid item md={6} xs={11}>     
+          <Grid2 container spacing={2} mt={2} justifyContent={'center'}> 
+        <Grid2 item md={6} xs={11}>     
         <Button startIcon={<Iconify icon='material-symbols:cancel'/>} size="large" onClick={hideEditUser} variant="outlined" color={'error'}
         sx={{width: '100%'}}
         >
           Cancel
         </Button>
-        </Grid>
-        <Grid item md={6} xs={11}>     
+        </Grid2>
+        <Grid2 item md={6} xs={11}>     
         <LoadingButton startIcon={<Iconify icon='teenyicons:tick-circle-solid'/>}fullWidth size="large" type='submit' variant="outlined"  loading={isSubmitting}>
           Update
         </LoadingButton>
-        </Grid>       
-        </Grid>       
+        </Grid2>       
+        </Grid2>       
 
           
         </Form>

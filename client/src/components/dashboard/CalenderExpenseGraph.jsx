@@ -1,4 +1,4 @@
-import { Box, FormControlLabel, FormGroup, Grid, Switch, Typography } from "@mui/material"
+import { Box, FormControlLabel, FormGroup, Grid2, Switch, Typography } from "@mui/material"
 import { Line } from "react-chartjs-2";
 import 'chart.js/auto'
 import { useEffect, useState } from "react";
@@ -6,7 +6,6 @@ import Loading from "../loading";
 import { getUserDailyExpService, getUserMonthlyExpService } from "../../services/expenseServices";
 import { monthNamesMMM } from "../../utils/helper";
 import useResponsive from "../../theme/hooks/useResponsive";
-import { set } from "mongoose";
 import AlertBanner from "../AlertBanner";
 
 export const CalenderExpenseGraph = () => {

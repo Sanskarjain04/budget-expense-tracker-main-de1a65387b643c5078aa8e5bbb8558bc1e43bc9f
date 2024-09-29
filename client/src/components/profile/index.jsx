@@ -1,4 +1,4 @@
-import { Container, Stack, Typography, Box, Avatar, Grid, Link, TextField, Button, ModalManager, Modal, Snackbar, Alert } from '@mui/material'
+import { Container, Stack, Typography, Box, Avatar, Grid2, Link, TextField, Button, ModalManager, Modal, Snackbar, Alert } from '@mui/material'
 import gravatarUrl from 'gravatar-url'
 import Iconify from '../Iconify'
 import useResponsive from '../../theme/hooks/useResponsive' 
@@ -85,8 +85,8 @@ return (
     User Profile
   </Typography>
 
-  <Grid container spacing={3} p={4}>
-    <Grid item xs={12} md={4} align="center">
+  <Grid2 container spacing={3} p={4}>
+    <Grid2 item xs={12} md={4} align="center">
       {user.emailId && 
       <Avatar src={gravatarUrl(user.emailId, {size: 350, default: configData.USER_DEFAULT_LOGO_URL})} alt="photoURL" sx={{ width: 240, height: 240 }} />}
       <Typography variant="body2" align="center" sx={{ mt: 3, color: 'text.secondary' }}>
@@ -95,8 +95,8 @@ return (
         Know how to set gravitar profile pic!
         </Link>
       </Typography>
-    </Grid>
-    <Grid item xs={12} md={6} sx={{mt: 4}}>
+    </Grid2>
+    <Grid2 item xs={12} md={6} sx={{mt: 4}}>
     {changePass && (
       <ChangePassword hidePassUpdate={hidePassUpdate} emailId = {user.emailId}
         showHomeAlert={setShowAlert} homeAlertMessage={setAlertMessage} 
@@ -116,8 +116,8 @@ showHomeAlert={setShowAlert} homeAlertMessage={setAlertMessage}
             onCloseHandle={handleAlertClose}/>
 
     <UserDetails firstName={user.firstName} lastName={user.lastName} emailId={user.emailId}/>
-      <Grid container spacing={3} mt={1} justifyContent={'center'}>
-        <Grid item xs={11} md={3}
+      <Grid2 container spacing={3} mt={1} justifyContent={'center'}>
+        <Grid2 item xs={11} md={3}
          order={{xs:3, md:1}}
         >
           <Button startIcon={<Iconify icon='fluent:delete-dismiss-24-filled'/>} variant="outlined" color="error" sx={{width:"100%"}} 
@@ -152,8 +152,8 @@ showHomeAlert={setShowAlert} homeAlertMessage={setAlertMessage}
           </Stack>
         </Box>
           </Modal>
-        </Grid>
-        <Grid item xs={11} md={5}
+        </Grid2>
+        <Grid2 item xs={11} md={5}
          order={{xs:2, md:2}}
         >
           <Button startIcon={<Iconify icon='mdi:form-textbox-password'/>} variant="outlined" color="warning" sx={{width:"100%"}} 
@@ -161,8 +161,8 @@ showHomeAlert={setShowAlert} homeAlertMessage={setAlertMessage}
           >
             Change Password
           </Button>
-        </Grid>
-        <Grid item xs={11} md={4} 
+        </Grid2>
+        <Grid2 item xs={11} md={4} 
         order={{xs:1, md:3}}
         >
           <Button startIcon={<Iconify icon='clarity:edit-solid'/>} variant="outlined" sx={{width:"100%"}} 
@@ -170,12 +170,12 @@ showHomeAlert={setShowAlert} homeAlertMessage={setAlertMessage}
           >
             Edit Details
           </Button>
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
       </>
       )}
-    </Grid>
-  </Grid>
+    </Grid2>
+  </Grid2>
   </>
 }
 

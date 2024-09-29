@@ -3,7 +3,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
-import { Box, Button, Chip, Container, FormControl, FormHelperText, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Modal, OutlinedInput, Select, TextField, Typography } from '@mui/material'
+import { Box, Button, Chip, Container, FormControl, FormHelperText, Grid2, IconButton, InputAdornment, InputLabel, MenuItem, Modal, OutlinedInput, Select, TextField, Typography } from '@mui/material'
 import { Form, FormikProvider, useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import * as Yup from 'yup';
@@ -111,8 +111,8 @@ export default function AddExpense() {
         <FormikProvider value={formik}>
 
           <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
-            <Grid container spacing={3} sx={{ maxWidth: 800 }}>
-              <Grid item xs={12} >
+            <Grid2 container spacing={3} sx={{ maxWidth: 800 }}>
+              <Grid2 item xs={12} >
                 <TextField fullWidth
                   type="text"
                   name="expenseName"
@@ -123,8 +123,8 @@ export default function AddExpense() {
                   error={Boolean(touched.expenseName && errors.expenseName)}
                   helperText={touched.expenseName && errors.expenseName}
                 />
-              </Grid>
-              <Grid item xs={12} >
+              </Grid2>
+              <Grid2 item xs={12} >
                 <TextField
                   multiline
                   rows={2}
@@ -137,9 +137,9 @@ export default function AddExpense() {
                   error={Boolean(touched.expenseDescription && errors.expenseDescription)}
                   helperText={touched.expenseDescription && errors.expenseDescription}
                 />
-              </Grid>
+              </Grid2>
 
-              <Grid item xs={12} >
+              <Grid2 item xs={12} >
                 <FormControl fullWidth
                   error={Boolean(touched.expenseOwner && errors.expenseOwner)}
                 >
@@ -163,9 +163,9 @@ export default function AddExpense() {
                   <FormHelperText>{touched.expenseOwner && errors.expenseOwner}</FormHelperText>
 
                 </FormControl>
-              </Grid>
+              </Grid2>
 
-              <Grid item xs={12}>
+              <Grid2 item xs={12}>
                 <FormControl sx={{ width: '100%' }} error={Boolean(touched.expenseMembers && errors.expenseMembers)}>
                   <InputLabel id="expense-members-label">Expense Members</InputLabel>
                   <Select
@@ -193,9 +193,9 @@ export default function AddExpense() {
                   </Select>
                   <FormHelperText>{touched.expenseMembers&& errors.expenseMembers}</FormHelperText>
                 </FormControl>
-              </Grid>
+              </Grid2>
 
-              <Grid item xs={6} >
+              <Grid2 item xs={6} >
                 <TextField
                   fullWidth
                   name="expenseAmount"
@@ -217,8 +217,8 @@ export default function AddExpense() {
                   error={Boolean(touched.expenseAmount && errors.expenseAmount)}
                   helperText={touched.expenseAmount && errors.expenseAmount}
                 />
-              </Grid>
-              <Grid item xs={6} >
+              </Grid2>
+              <Grid2 item xs={6} >
                 <FormControl fullWidth
                   error={Boolean(touched.expenseCategory && errors.expenseCategory)}
                 >
@@ -240,8 +240,8 @@ export default function AddExpense() {
                   <FormHelperText>{touched.expenseCategory && errors.expenseCategory}</FormHelperText>
 
                 </FormControl>
-              </Grid>
-              <Grid item xs={12} >
+              </Grid2>
+              <Grid2 item xs={12} >
                 <FormControl fullWidth
                   error={Boolean(touched.expenseType&& errors.expenseType)}
                 >
@@ -260,8 +260,8 @@ export default function AddExpense() {
                   <FormHelperText>{touched.expenseType && errors.expenseType}</FormHelperText>
 
                 </FormControl>
-              </Grid>
-              <Grid item xs={12}>
+              </Grid2>
+              <Grid2 item xs={12}>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   {mdUp ? 
                   <DesktopDatePicker
@@ -289,21 +289,21 @@ export default function AddExpense() {
                         
                   />}
                 </LocalizationProvider>
-              </Grid>
+              </Grid2>
 
-              {mdUp && <Grid item xs={0} md={6} />}
-              <Grid item xs={6} md={3}>
+              {mdUp && <Grid2 item xs={0} md={6} />}
+              <Grid2 item xs={6} md={3}>
                 <Button fullWidth size="large"variant="outlined" component={RouterLink} to={configData.VIEW_GROUP_URL+groupId}>
                   Cancel
                 </Button>
-              </Grid>
-              <Grid item xs={6} md={3}>
+              </Grid2>
+              <Grid2 item xs={6} md={3}>
                 <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
                   Add Expense
                 </LoadingButton>
-              </Grid>
+              </Grid2>
              
-            </Grid>
+            </Grid2>
           </Form>
         </FormikProvider>
       </Box> }

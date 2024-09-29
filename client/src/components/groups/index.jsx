@@ -1,4 +1,4 @@
-import { Grid, CardActionArea, CardContent, CardMedia, Typography, Container, Card, Box, Link, alpha, Fab } from "@mui/material";
+import { Grid2, CardActionArea, CardContent, CardMedia, Typography, Container, Card, Box, Link, alpha, Fab } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getUserGroupsService } from "../../services/groupServices";
 import Iconify from "../Iconify";
@@ -55,10 +55,10 @@ export default function Group() {
           <Typography variant="h3" pb={2}>
             Your Groups,
           </Typography>
-          <Grid container spacing={4} >
+          <Grid2 container spacing={4} >
 
             {group?.map(myGroup => (
-              <Grid item xs={12} md={6} lg={6} key={myGroup?._id}>
+              <Grid2 item xs={12} md={6} lg={6} key={myGroup?._id}>
                 <Link component={RouterLink}
                 to={dataConfig.VIEW_GROUP_URL+myGroup?._id}
                 sx={{ textDecoration: 'none' }}
@@ -74,9 +74,9 @@ export default function Group() {
                   color={color[Math.floor(Math.random() * 5)]}
                 />
                 </Link>
-              </Grid>
+              </Grid2>
             ))}
-            <Grid item xs={12} md={6} lg={6}>
+            <Grid2 item xs={12} md={6} lg={6}>
               <Link component={RouterLink}
                 to={dataConfig.CREATE_GROUP_URL}
                 sx={{ textDecoration: 'none' }}
@@ -94,14 +94,14 @@ export default function Group() {
                     minHeight: 310
                   }}
                 >
-                  <Grid
+                  <Grid2
                     container
                     direction="row"
                     justifyContent="center"
                     alignItems="center"
                     minHeight={310}
                   >
-                    <Grid item xs={'auto'} md={'auto'} >
+                    <Grid2 item xs={'auto'} md={'auto'} >
                       <Iconify icon="fluent:people-team-add-20-filled" color={'#fff'} sx={{
                         width: '100%',
                         height: 50
@@ -111,12 +111,12 @@ export default function Group() {
                       }}>
                         Create new group!
                       </Typography>
-                    </Grid>
-                  </Grid>
+                    </Grid2>
+                  </Grid2>
                 </Card>
               </Link>
-            </Grid>
-          </Grid>
+            </Grid2>
+          </Grid2>
         </>}
     </Container>
   )

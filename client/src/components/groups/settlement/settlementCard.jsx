@@ -1,4 +1,4 @@
-import { Avatar, Button, Grid, Modal, Stack, Typography } from "@mui/material"
+import { Avatar, Button, Grid2, Modal, Stack, Typography } from "@mui/material"
 import { Box } from "@mui/system"
 import Iconify from "../../Iconify"
 import useResponsive from '../../../theme/hooks/useResponsive';
