@@ -7,7 +7,6 @@ import Iconify from '../../components/Iconify';
 //
 import AccountPopover from './AccountPopover';
 
-import NotificationsPopover from './NotificationsPopover'
 
 import Searchbar from './Searchbar';
 

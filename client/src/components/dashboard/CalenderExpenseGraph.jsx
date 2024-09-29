@@ -1,4 +1,4 @@
-import { Box, FormControlLabel, FormGroup, Grid2, Switch, Typography } from "@mui/material"
+import { Box, FormControlLabel, FormGroup, Switch, Typography } from "@mui/material"
 import { Line } from "react-chartjs-2";
 import 'chart.js/auto'
 import { useEffect, useState } from "react";
@@ -74,7 +74,7 @@ export const CalenderExpenseGraph = () => {
     getUserDetails();
         
 
-    }, [])
+    }, [profile.emailId])
     return (
         <>{loading? <Loading/> : 
         <Box sx={{

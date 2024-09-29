@@ -1,4 +1,4 @@
-import { Grid2, CardActionArea, CardContent, CardMedia, Typography, Container, Card, Box, Link, alpha, Fab } from "@mui/material";
+import { Grid2, Typography, Container, Card, Link, alpha, Fab } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getUserGroupsService } from "../../services/groupServices";
 import Iconify from "../Iconify";
