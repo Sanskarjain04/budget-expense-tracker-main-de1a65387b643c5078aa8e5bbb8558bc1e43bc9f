@@ -50,7 +50,7 @@ const UserBalanceChart = () => {
 
     useEffect(() => {
         const getGroupDetails = async () => {
-            setLoading(true)
+            setLoading(false)
             const groupIdJson = {
                 id: params.groupId
             }

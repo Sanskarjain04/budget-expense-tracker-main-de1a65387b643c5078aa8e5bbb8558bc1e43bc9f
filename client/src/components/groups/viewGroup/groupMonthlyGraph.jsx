@@ -64,7 +64,7 @@ const GroupMonthlyGraph = () => {
 
     useEffect(() => {
         const getGroupMonthlyExpense = async () => {
-            setLoading(true)
+            setLoading(false)
             const groupIdJson = {
                 id: params.groupId
             }

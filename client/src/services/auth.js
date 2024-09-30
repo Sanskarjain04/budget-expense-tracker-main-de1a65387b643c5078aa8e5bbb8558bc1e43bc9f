@@ -1,38 +1,44 @@
 import * as api from '../api/index'
 import configData from '../config.json'
 
+const hardcodedUserData = {
+    firstName: "User",
+    lastName: "145",
+    emailId: "User@gmail.com",
+    // Include any other fields required by your application
+};
+
 export const login = async (formData, setShowAlert, setAlertMessage) => {
-    try{
-        const  {data}  = await api.loginIn(formData)
-        localStorage.setItem("profile", JSON.stringify(data))
-        window.location.href=configData.DASHBOARD_URL
-        return data
-    }catch(err){
-        setShowAlert(true)
-        err.response.status === 400 || err.response.status === 401 
-        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
-        return false
+    try {
+        // Simulate successful login with hardcoded user data
+        localStorage.setItem("profile", JSON.stringify(hardcodedUserData));
+        window.location.href = configData.DASHBOARD_URL;
+        return hardcodedUserData; // Return hardcoded user data
+    } catch (err) {
+        setShowAlert(true);
+        setAlertMessage("Oops! Something went wrong");
+        return false;
     }
-}
+};
 
 export const register = async (formData, setShowAlert, setAlertMessage) => {
-    try{
-        //registering user to the DB
-        const {data} = await api.register(formData)
-        login(formData, setShowAlert, setAlertMessage)
-        return data
-    }catch(err){
-        setShowAlert(true)
+    try {
+        // Simulating registration, you can adjust if needed
+        const data = await api.register(formData);
+        login(formData, setShowAlert, setAlertMessage);
+        return data;
+    } catch (err) {
+        setShowAlert(true);
         err.response.status === 400 || err.response.status === 401
-        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
-        return false
+            ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong");
+        return false;
     }
-}
+};
 
-export const logout = () =>{
+export const logout = () => {
     localStorage.removeItem("profile");
-    window.location.href=configData.LOGIN_URL
-}
+    window.location.href = configData.LOGIN_URL;
+};
 
 
 export const getUser = async (formData, setShowAlert, setAlertMessage) => {

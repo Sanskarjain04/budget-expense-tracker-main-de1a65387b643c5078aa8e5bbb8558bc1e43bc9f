@@ -60,7 +60,7 @@ const GroupCategoryGraph = (currencyType) => {
 
     useEffect(() => {
         const getGroupCategoryExpense = async () => {
-            setLoading(true)
+            setLoading(false)
             const groupIdJson = {
                 id: params.groupId
             }

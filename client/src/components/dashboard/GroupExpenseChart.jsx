@@ -1,28 +1,46 @@
-import { Box, Typography } from "@mui/material"
-import { useEffect, useState } from "react"
-import { Pie } from "react-chartjs-2"
-import { getUserGroupsService } from "../../services/groupServices"
-import AlertBanner from "../AlertBanner"
-import Loading from "../loading"
-import 'chart.js/auto'
-import { convertToCurrency } from "../../utils/helper"
+import { Box, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
+import { Pie } from "react-chartjs-2";
+import AlertBanner from "../AlertBanner";
+import Loading from "../loading";
+import 'chart.js/auto';
+import { convertToCurrency } from "../../utils/helper";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import useResponsive from '../../theme/hooks/useResponsive';
 
 export const GroupExpenseChart = () => {
     const mdUp = useResponsive('up', 'md');
-    const [loading, setLoading] = useState(true)
-    const [groupExp, setGroupExp] = useState()
-    const [alert, setAlert] = useState(false)
-    const [alertMessage, setAlertMessage] = useState()
-    const profile = JSON.parse(localStorage.getItem("profile"))
+    const [loading, setLoading] = useState(true);
+    const [groupExp, setGroupExp] = useState([]);
+    const [alert, setAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
+
+    // Hardcoded group expenses data
+    const expenses = [
+        {
+            groupName: 'Nagar Nigam Road Repair',
+            groupTotal: 5000,
+        },
+        {
+            groupName: 'Nagar Nigam Park Renovation',
+            groupTotal: 10000,
+        },
+        {
+            groupName: 'PWD Bridge Construction',
+            groupTotal: 15000,
+        },
+        {
+            groupName: 'PWD School Building Repair',
+            groupTotal: 8000,
+        },
+    ];
 
     const data = {
-        labels: groupExp?.map(group => (group.groupName)),
+        labels: groupExp?.map(group => group.groupName),
         datasets: [
             {
                 label: 'Category Expenses',
-                data: groupExp?.map(group => (group.groupTotal)),
+                data: groupExp?.map(group => group.groupTotal),
                 fill: true,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.7)',
@@ -33,61 +51,59 @@ export const GroupExpenseChart = () => {
                     'rgba(255, 159, 64, 0.7)',
                 ],
                 borderWidth: 1,
-                //borderColor: ["red", "green", "Blue", "Yellow", "Orange", "Violet"]
             }
         ]
-    }
+    };
 
     const options = {
         maintainAspectRatio: false,
-        plugins: {   
+        plugins: {
             datalabels: {
-                display:false,
+                display: false,
                 formatter: (value) => {
-                  return convertToCurrency(value) ;
+                    return convertToCurrency(value);
                 }
-              },
+            },
             legend: {
                 display: true,
-                position: mdUp? 'right' : 'bottom',
+                position: mdUp ? 'right' : 'bottom',
                 labels: {
                     padding: 10
                 },
             },
         }
     };
-    useEffect(() => {
-        const getGroupExpense = async () => {
-            setLoading(true)
-            const userIdJson = {
-                user: profile.emailId
-            }
-            const group_exp =
-                await getUserGroupsService(profile, setAlert, setAlertMessage)
-            setGroupExp(group_exp.data.groups)
-            setLoading(false)
-            console.log(group_exp.data.groups)
-        }
-        getGroupExpense()
 
-    }, [profile])
+    useEffect(() => {
+        // Simulate loading data
+        const loadExpenses = () => {
+            setLoading(false);
+            setTimeout(() => {
+                setGroupExp(expenses);
+                setLoading(false);
+            }, 1000); // Simulate a network delay
+        };
+        loadExpenses();
+    }, []);
 
     return (
-        <>{loading? <Loading/> : 
-        <Box sx={{
-            p: 5,
-            bgcolor: 'background.paper',
-            borderRadius: 2,
-            boxShadow: 5,
-        }}>
-            <Typography variant="h6" mb={2}>
-                Groupwise Expense Chart
-            </Typography>
-            <AlertBanner showAlert={alert} alertMessage={alertMessage} severity = 'error' />
-            <Box height={500}>
-            <Pie data={data} options={options} plugins={[ChartDataLabels]}/>
-            </Box>
-        </Box>}
+        <>
+            {loading ? <Loading /> :
+                <Box sx={{
+                    p: 5,
+                    bgcolor: 'background.paper',
+                    borderRadius: 2,
+                    boxShadow: 5,
+                }}>
+                    <Typography variant="h6" mb={2}>
+                        Project Expense Chart
+                    </Typography>
+                    <AlertBanner showAlert={alert} alertMessage={alertMessage} severity='error' />
+                    <Box height={500}>
+                        <Pie data={data} options={options} plugins={[ChartDataLabels]} />
+                    </Box>
+                </Box>
+            }
         </>
     )
 }

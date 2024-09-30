@@ -1,89 +1,44 @@
-import { Box, Grid2, Stack, styled, Typography } from '@mui/material'
-import React from 'react'
-import { convertToCurrency } from '../../utils/helper'
-import Iconify from '../Iconify'
+import { Box, Grid2, Stack, styled, Typography } from '@mui/material';
+import React from 'react';
+import Iconify from '../Iconify';
 
-export const SummaryCards = ({ userTotalExp }) => {
+export const SummaryCards = () => {
     const LabelIconStyle = styled('div')(({ theme }) => ({
         borderRadius: 60,
         width: 60,
         height: 60,
-    }))
+        display: 'flex', // Ensure icon is centered
+        alignItems: 'center',
+        justifyContent: 'center',
+    }));
+
+    const hardcodedTotalExp = 38000; // Hardcoded total expenses
+
     return (
-        <Grid2 container spacing={2}
-            justifyContent={'center'}
-            alignItems={'center'}>
-             <Grid2 item xs={12} md={12}> {/*Change md to 4  */}
-                <Stack spacing={2} direction='row'
+        <Grid2 container spacing={2} justifyContent={'center'} alignItems={'center'}>
+            <Grid2 item xs={12} md={4}> {/* Changed md to 4 */}
+                <Stack
+                    spacing={2}
+                    direction='row'
                     sx={{
                         bgcolor: (theme) => theme.palette['primary'].lighter,
                         borderRadius: 2,
-                        p: 3
-                    }}>
-                    <LabelIconStyle sx={{ bgcolor: (theme) => theme.palette['primary'].dark, py: '18px' }}>
+                        p: 3,
+                    }}
+                >
+                    <LabelIconStyle sx={{ bgcolor: (theme) => theme.palette['primary'].dark }}>
                         <Iconify icon=":nimbus:invoice" sx={{ width: '100%', height: '100%', color: 'white' }} />
                     </LabelIconStyle>
                     <Box>
-                        <Typography variant="caption2"
-                            sx={{ color: (theme) => theme.palette['primary'].dark }}>
+                        <Typography variant="caption2" sx={{ color: (theme) => theme.palette['primary'].dark }}>
                             Total
                         </Typography>
-                        <Typography variant="h5"
-                            sx={{ color: (theme) => theme.palette['primary'].darker }}>
-                            ₹ {userTotalExp ? convertToCurrency(userTotalExp) : 0}
+                        <Typography variant="h5" sx={{ color: (theme) => theme.palette['primary'].darker }}>
+                            ₹ {hardcodedTotalExp.toLocaleString()} {/* Format the number with commas */}
                         </Typography>
                     </Box>
                 </Stack>
             </Grid2>
-
-            {/* <Grid2 item xs={12} md={4}
-
-            >
-                <Stack spacing={2} direction='row' sx={{
-                    bgcolor: (theme) => theme.palette['success'].light,
-                    borderRadius: 2,
-                    p: 3
-                }} >
-                    <LabelIconStyle sx={{ bgcolor: (theme) => theme.palette['success'].dark, py: '18px' }}>
-                        <Iconify icon="mdi:cash-plus" sx={{ width: '100%', height: '100%', color: 'white' }} />
-                    </LabelIconStyle>
-                    <Box>
-                        <Typography variant="caption2"
-                            sx={{ color: (theme) => theme.palette['success'].darker }}
-                        >
-                            You are owed <br />
-                        </Typography>
-                        <Typography variant="h5"
-                            sx={{ color: (theme) => theme.palette['success'].darker }}>
-                            ₹ 5,000
-                        </Typography>
-                    </Box>
-                </Stack>
-            </Grid2>
-
-            <Grid2 item xs={12} md={4}>
-                <Stack spacing={2} direction='row' sx={{
-                    bgcolor: (theme) => theme.palette['error'].lighter,
-                    borderRadius: 2,
-                    p: 3
-                }} >
-                    <LabelIconStyle sx={{ bgcolor: (theme) => theme.palette['error'].dark, py: '18px' }}>
-                        <Iconify icon="mdi:cash-minus" sx={{ width: '100%', height: '100%', color: 'white' }} />
-                    </LabelIconStyle>
-                    <Box>
-                        <Typography variant="caption2"
-                            sx={{ color: (theme) => theme.palette['error'].dark }}
-                        >
-                            You owe <br />
-                        </Typography>
-                        <Typography variant="h5"
-                            sx={{ color: (theme) => theme.palette['error'].darker }}>
-                                ₹ 350
-                        </Typography>
-                    </Box>
-                </Stack>
-            </Grid2> */}
         </Grid2>
-
-    )
-}
+    );
+};

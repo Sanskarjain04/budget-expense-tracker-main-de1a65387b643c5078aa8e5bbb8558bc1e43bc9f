@@ -25,7 +25,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         const getUserDetails = async () => {
-            setLoading(true);
+            setLoading(false);
             const userIdJson = {
                 user: profile.emailId
             }
@@ -51,7 +51,6 @@ export default function Dashboard() {
                             <Grid2 item xs={12}>
                                 <WelcomeMessage />
                             </Grid2>
-
                             {newUser ?
                                 <Grid2 item xs={12}>
                                     <Grid2 container
@@ -63,7 +62,6 @@ export default function Dashboard() {
                                             textAlign: 'center',
                                             minHeight: 'calc(50vh - 200px )',
                                         }}
-
                                     >
                                         <Typography variant="body2" fontSize={18} textAlign={'center'}>
                                             Seems to be new here! Create your first group and add expenses <br />
@@ -74,34 +72,29 @@ export default function Dashboard() {
                                         </Typography>
                                     </Grid2>
                                 </Grid2>
-
                                 :
                                 <>
                                     <Grid2 item xs={12}>
                                         <SummaryCards userTotalExp={userExp?.total} />
                                     </Grid2>
-                                    <Grid2 item xs={12}>
+                                    <Grid2 item xs={12} sx={{ width:"100%" }}>
                                         <CalenderExpenseGraph />
                                     </Grid2>
                                     <Grid2 item xs={12} md={12}>
                                         <GroupExpenseChart />
                                     </Grid2>
-                                    {/* <Grid2 item xs={12} md={6}>
+                                    <Grid2 item xs={12} md={6}>
                                 <CategoryExpenseChart />
-                            </Grid2> */}
+                            </Grid2>
                                 </>
                             }
                         </Grid2>
-
                     </Grid2>
                     {!newUser &&
                         <Grid2 item xs={12} md={4}>
                             <Grid2 container spacing={3}>
-                                <Grid2 item xs={12}>
+                                <Grid2 item xs={12} sx={{ width:"100%"}}>
                                     <RecentTransactions />
-                                </Grid2>
-                                <Grid2 item xs={12}>
-                                    <CategoryExpenseChart />
                                 </Grid2>
                                 <Grid2 item md={12} xs={0}>
                                     <EndMessage />
@@ -109,9 +102,7 @@ export default function Dashboard() {
                             </Grid2>
                         </Grid2>
                     }
-
                 </Grid2>
-
             }</Container>
 
     )
